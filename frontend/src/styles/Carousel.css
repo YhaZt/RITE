@@ -30,8 +30,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* show the full image without cropping */
-  background-size: contain;
+  /* show image at 100% */
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
