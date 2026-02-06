@@ -9,7 +9,6 @@ import Extension from "./pages/Extension";
 import Innovation from "./pages/Innovation";
 import Ethics from "./pages/Ethics";
 import Centers from "./pages/Centers";
-import Contact from "./pages/Contact";
 
 export default function App() {
   return (
@@ -19,11 +18,10 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/research" element={<Research />} />
-        <Route path="/extension" element={<Extension />} />
         <Route path="/innovation" element={<Innovation />} />
         <Route path="/ethics" element={<Ethics />} />
+        <Route path="/extension" element={<Extension />} />
         <Route path="/centers" element={<Centers />} />
-        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </div>
