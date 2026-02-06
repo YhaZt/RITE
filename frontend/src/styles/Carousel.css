@@ -1,12 +1,19 @@
 .carousel-container {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  background: white;
+  height: 100%;
+  background: transparent;
   padding: 0;
+  z-index: 0;
+  overflow: hidden;
 }
 
 .carousel-wrapper {
   position: relative;
   width: 100%;
+  height: 100%;
   max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
@@ -17,13 +24,14 @@
 .carousel-slide {
   position: absolute;
   width: 100%;
-  height: 500px;
+  height: 100%;
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-size: cover;
+  /* show the full image without cropping */
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -35,22 +43,11 @@
 }
 
 .carousel-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
+  display: none; /* remove dark overlay so image is fully visible */
 }
 
 .carousel-content {
-  text-align: left;
-  color: white;
-  padding: 3rem 2rem;
-  max-width: 800px;
-  position: relative;
-  z-index: 2;
+  display: none; /* hide textual content in carousel */
 }
 
 .carousel-content h2 {

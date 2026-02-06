@@ -29,6 +29,11 @@ body {
   font-weight: bold;
   color: #22c55e; /* Green accent */
   margin-right: auto;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+  height: 60px;
+  width: auto;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-logo a {
@@ -56,6 +61,76 @@ body {
   gap: 0.8rem;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.navbar-links li {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.dropdown-arrow {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.4rem 0.3rem;
+  display: none;
+  font-size: 0.7rem;
+  vertical-align: middle;
+}
+
+.dropdown:hover > .dropdown-arrow {
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: linear-gradient(180deg, #fff, #f7fafc);
+  color: #1f2937;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  border-radius: 6px;
+  padding: 0.5rem 0;
+  z-index: 2000;
+  list-style: none;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #1f2937;
+}
+
+.dropdown-menu li a:hover {
+  background: #edf2f7;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown.open > .dropdown-menu {
+  display: block;
 }
 
 .navbar-links a {
@@ -124,6 +199,22 @@ body {
     z-index: 999;
   }
 
+  .navbar-links li {
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .dropdown-menu li a {
+    color: white;
+    padding: 0.8rem 1rem;
+  }
+
   .navbar-links.active {
     max-height: 500px;
     padding: 1rem 0;
@@ -169,6 +260,8 @@ body {
 
 .hero-content {
   max-width: 800px;
+  position: relative;
+  z-index: 3;
 }
 
 .hero h1 {
