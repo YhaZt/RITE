@@ -6,6 +6,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [researchOpen, setResearchOpen] = useState(false);
   const [innovationOpen, setInnovationOpen] = useState(false);
+  const [centersOpen, setCentersOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -15,6 +16,7 @@ export default function Navbar() {
     setIsOpen(false);
     setResearchOpen(false);
     setInnovationOpen(false);
+    setCentersOpen(false);
   };
 
   const toggleResearch = (e) => {
@@ -27,6 +29,14 @@ export default function Navbar() {
     e.preventDefault();
     setInnovationOpen(!innovationOpen);
     setResearchOpen(false); // close other dropdown
+    setCentersOpen(false);
+  };
+
+  const toggleCenters = (e) => {
+    e.preventDefault();
+    setCentersOpen(!centersOpen);
+    setResearchOpen(false);
+    setInnovationOpen(false);
   };
 
   const handleNormalLinkClick = () => {
@@ -107,12 +117,45 @@ export default function Navbar() {
           <ul className="dropdown-menu">
             <li><NavLink to="/technology-transfer" onClick={handleNormalLinkClick}>Technology Transfer &amp; Patent Unit</NavLink></li>
             <li><NavLink to="/minsu-i-bibes" onClick={handleNormalLinkClick}>Minsu I-BIBES</NavLink></li>
+            <li><NavLink to="/bakodhub" onClick={handleNormalLinkClick}>BAKOD Hub</ NavLink></li>
           </ul>
         </li>
 
         <li><NavLink to="/ethics" onClick={handleNormalLinkClick}>Research Ethics Extension & Integrity</NavLink></li>
         <li><NavLink to="/extension" onClick={handleNormalLinkClick}>Extension</NavLink></li>
-        <li><NavLink to="/centers" onClick={handleNormalLinkClick}>Research Centers</NavLink></li>
+        
+        {/* Research Centers */}
+        <li className={`dropdown ${centersOpen ? 'open' : ''}`}>
+          <div className="dropdown-header">
+            <NavLink
+              to="/centers"
+              onClick={handleNormalLinkClick}
+              className="dropdown-toggle"
+            >
+              Research Centers
+            </NavLink>
+            <button
+              className="dropdown-arrow"
+              onClick={toggleCenters}
+              aria-expanded={centersOpen}
+            >
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <ul className="dropdown-menu">
+            <li><NavLink to="/mindoro-development" onClick={handleNormalLinkClick}>Mindoro Development and Studies Center</NavLink></li>
+            <li><NavLink to="/digital-innovation" onClick={handleNormalLinkClick}>Center for Digital Innovation, Cybersecurity and Emerging Technologies</NavLink></li>
+            <li><NavLink to="/environmental-studies" onClick={handleNormalLinkClick}>Center for Environmental Studies</NavLink></li>
+            <li><NavLink to="/fisheries-research" onClick={handleNormalLinkClick}>Fisheries Research and Development Center</NavLink></li>
+            <li><NavLink to="/mimaropa-food" onClick={handleNormalLinkClick}>MIMAROPA Food Innovation Center</NavLink></li>
+            <li><NavLink to="/island-education" onClick={handleNormalLinkClick}>Center for Island Education and Sustainability</NavLink></li>
+            <li><NavLink to="/peace-criminology" onClick={handleNormalLinkClick}>Center for Peace, Criminology, and Law Enforcement Studies</NavLink></li>
+            <li><NavLink to="/smart-agriculture" onClick={handleNormalLinkClick}>Center for Smart Agriculture and Biosystems Innovation</NavLink></li>
+            <li><NavLink to="/textile-fiber" onClick={handleNormalLinkClick}>Natural Textile Fiber Innovation Center</NavLink></li>
+          </ul>
+        </li>
       </div>
 
       {/* Hamburger icon disappears when isOpen is true */}

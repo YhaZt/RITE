@@ -13,6 +13,16 @@ import PublicationAndPrinting from "./pages/PublicationAndPrinting";
 import ResearchUnit from "./pages/ResearchUnit";
 import TechnologyTransfer from "./pages/TechnologyTransfer";
 import MinsuIBibes from "./pages/MinsuIBibes";
+import BakodhubPage from "./pages/BakodhubPage";
+import MindoroDevelopmentCenter from "./pages/MindoroDevelopmentCenter";
+import DigitalInnovationCenter from "./pages/DigitalInnovationCenter";
+import EnvironmentalStudiesCenter from "./pages/EnvironmentalStudiesCenter";
+import FisheriesResearchCenter from "./pages/FisheriesResearchCenter";
+import MIMARLPAFoodCenter from "./pages/MIMARLPAFoodCenter";
+import IslandEducationCenter from "./pages/IslandEducationCenter";
+import PeaceCriminologyCenter from "./pages/PeaceCriminologyCenter";
+import SmartAgricultureCenter from "./pages/SmartAgricultureCenter";
+import TextileFiberCenter from "./pages/TextileFiberCenter";
 
 export default function App() {
   return (
@@ -27,9 +37,19 @@ export default function App() {
         <Route path="/innovation" element={<Innovation />} />
         <Route path="/technology-transfer" element={<TechnologyTransfer />} />
         <Route path="/minsu-i-bibes" element={<MinsuIBibes />} />
+        <Route path="/bakodhub" element={<BakodhubPage />} />
         <Route path="/ethics" element={<Ethics />} />
         <Route path="/extension" element={<Extension />} />
         <Route path="/centers" element={<Centers />} />
+        <Route path="/mindoro-development" element={<MindoroDevelopmentCenter />} />
+        <Route path="/digital-innovation" element={<DigitalInnovationCenter />} />
+        <Route path="/environmental-studies" element={<EnvironmentalStudiesCenter />} />
+        <Route path="/fisheries-research" element={<FisheriesResearchCenter />} />
+        <Route path="/mimaropa-food" element={<MIMARLPAFoodCenter />} />
+        <Route path="/island-education" element={<IslandEducationCenter />} />
+        <Route path="/peace-criminology" element={<PeaceCriminologyCenter />} />
+        <Route path="/smart-agriculture" element={<SmartAgricultureCenter />} />
+        <Route path="/textile-fiber" element={<TextileFiberCenter />} />
       </Routes>
       <Footer />
     </div>

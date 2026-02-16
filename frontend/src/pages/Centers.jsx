@@ -1,68 +1,45 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import ImageCarousel from "../components/ImageCarousel";
 
 export default function Centers() {
   const [flippedIndex, setFlippedIndex] = useState(null);
+  const navigate = useNavigate();
 
   const centers = [
-    { title: "Center for Innovation & Development", desc: "Leading product development and industrial innovation strategies.", img: "/development.png" },
-    { title: "Center for Digital Transformation", desc: "Researching software engineering, cybersecurity, and digital systems.", img: "/digital.png" },
-    { title: "Center for Environmental Studies", desc: "Dedicated to sustainability, conservation, and ecosystem protection.", img: "/environmental.png" },
-    { title: "Center for Fisheries Research", desc: "Advancing aquatic science and sustainable fishing technologies.", img: "/fisheries.png" },
-    { title: "Center for Food Science", desc: "Focusing on nutrition, food safety, and agricultural processing.", img: "/food.png" },
-    { title: "Center for Island Sustainability", desc: "Specialized research on unique island ecologies and resources.", img: "/island.png" },
-    { title: "Center for Peace & Social Research", desc: "Exploring conflict resolution and societal development models.", img: "/peace.png" },
-    { title: "Center for Smart Technology", desc: "Integrating AI and IoT into community and industrial solutions.", img: "/smart.png" },
-    { title: "Center for Textile Innovation", desc: "Researching fiber science and sustainable garment production.", img: "/textile.png" },
+    { title: "Mindoro Development and Studies Center", desc: "Research on socio-economic, environmental, and cultural aspects of Mindoro.", img: "/development.png", link: "/mindoro-development" },
+    { title: "Center for Digital Innovation, Cybersecurity and Emerging Technologies", desc: "Advancing digital transformation and cybersecurity research.", img: "/digital.png", link: "/digital-innovation" },
+    { title: "Center for Environmental Studies", desc: "Dedicated to sustainability, conservation, and ecosystem protection.", img: "/environmental.png", link: "/environmental-studies" },
+    { title: "Fisheries Research and Development Center", desc: "Advancing aquatic science and sustainable fishing technologies.", img: "/fisheries.png", link: "/fisheries-research" },
+    { title: "MIMAROPA Food Innovation Center", desc: "Focusing on nutrition, food safety, and agricultural processing innovations.", img: "/food.png", link: "/mimaropa-food" },
+    { title: "Center for Island Education and Sustainability", desc: "Specialized research on unique island ecologies and resources.", img: "/island.png", link: "/island-education" },
+    { title: "Center for Peace, Criminology, and Law Enforcement Studies", desc: "Exploring conflict resolution and societal development models.", img: "/peace.png", link: "/peace-criminology" },
+    { title: "Center for Smart Agriculture and Biosystems Innovation", desc: "Integrating AI and IoT into agricultural and industrial solutions.", img: "/smart.png", link: "/smart-agriculture" },
+    { title: "Natural Textile Fiber Innovation Center", desc: "Researching fiber science and sustainable garment production.", img: "/textile.png", link: "/textile-fiber" },
   ];
+
+  const centerImages = centers.map(center => center.img);
 
   const handleFlip = (idx) => {
     setFlippedIndex(flippedIndex === idx ? null : idx);
   };
 
+  const handleViewDetails = (link) => {
+    navigate(link);
+  };
+
   return (
     <main className="page">
-      <section style={{ marginBottom: "2rem" }}>
+      <section style={{ marginBottom: "1rem" }}>
         <h2 style={{ marginBottom: "0.5rem" }}>Research Centers</h2>
         <p style={{ fontSize: "1rem", lineHeight: "1.6", maxWidth: "900px", marginBottom: "1.5rem" }}>
           Our research centers focus on specialized fields to address institutional and societal needs.
         </p>
       </section>
 
-      <section>
-        <h3 style={{ marginBottom: "1.5rem", color: "#1e4620" }}>Our Centers</h3>
-        
-        <div className="centers-grid">
-          {centers.map((center, idx) => (
-            <div 
-              key={idx} 
-              className={`flip-card ${flippedIndex === idx ? "is-flipped" : ""}`}
-              onClick={() => handleFlip(idx)}
-            >
-              <div className="flip-card-inner">
-                
-                {/* FRONT SIDE */}
-                <div className="flip-card-front">
-                  <img 
-                    src={center.img} 
-                    alt={center.title} 
-                    className="card-image"
-                  />
-                  <div className="image-overlay">
-                    <h4>{center.title}</h4>
-                  </div>
-                </div>
-
-                {/* BACK SIDE */}
-                <div className="flip-card-back">
-                  <h4>{center.title}</h4>
-                  <p>{center.desc}</p>
-                  <button className="details-btn">View Details</button>
-                </div>
-
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* Image Carousel Section - Floating Card */}
+      <section style={{ marginBottom: "3rem", display: "flex", justifyContent: "center" }}>
+        <ImageCarousel images={centerImages} centers={centers} />
       </section>
     </main>
   );
