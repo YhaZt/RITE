@@ -21,7 +21,7 @@ body {
 }
 
 .navbar {
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); /* Light white to light green gradient */
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
   color: #1f2937;
   padding: 0.75rem 1.5rem;
   display: flex;
@@ -36,7 +36,7 @@ body {
 .navbar-logo {
   font-size: 1.4rem;
   font-weight: bold;
-  color: #22c55e; /* Green accent */
+  color: #22c55e;
   margin-right: auto;
   filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.3));
   height: 60px;
@@ -54,7 +54,7 @@ body {
 
 .logo-img {
   height: 100px;
-  max-width:150px;
+  max-width: 150px;
   width: auto;
   object-fit: contain;
   transition: transform 0.2s ease;
@@ -76,6 +76,13 @@ body {
   position: relative;
 }
 
+/* --- Global Dropdown Fixes --- */
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .dropdown-toggle {
   background: none;
   border: none;
@@ -92,16 +99,17 @@ body {
   background: none;
   border: none;
   color: inherit;
-  font: inherit;
   cursor: pointer;
-  padding: 0.4rem 0.3rem;
-  display: none;
-  font-size: 0.7rem;
-  vertical-align: middle;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.dropdown:hover > .dropdown-arrow {
-  display: inline-block;
+/* Arrow points down by default, flips up when open */
+.dropdown.open .dropdown-arrow {
+  transform: rotate(180deg);
+  color: #22c55e;
 }
 
 .dropdown-menu {
@@ -120,22 +128,16 @@ body {
   margin: 0;
 }
 
-.dropdown-menu li {
-  padding: 0;
-}
-
 .dropdown-menu li a {
   display: block;
   padding: 0.5rem 1rem;
   color: #1f2937;
+  text-decoration: none;
 }
 
 .dropdown-menu li a:hover {
-  background: #edf2f7;
-}
-
-.dropdown:hover > .dropdown-menu {
-  display: block;
+  background: #22c55e;
+  color: white;
 }
 
 .dropdown.open > .dropdown-menu {
@@ -150,7 +152,6 @@ body {
   border-radius: 6px;
   transition: all 0.3s ease;
   font-size: 0.9rem;
-  white-space: normal;
 }
 
 .navbar-links a:hover {
@@ -158,23 +159,30 @@ body {
   color: white;
 }
 
-.navbar-links a:active {
-  background: linear-gradient(135deg, #10b981, #34d399);
-  color: white;
-}
-
 .navbar-links a.active {
-  background-color: #22c55e;
+  background-color: #35a75f;
   color: white;
-  border-bottom: none;
 }
 
-/* Hamburger Menu */
+/* --- Menu Overlay --- */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 998;
+}
+
+/* --- Hamburger Menu --- */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
+  z-index: 1001; /* Stay above the drawer */
 }
 
 .bar {
@@ -283,75 +291,239 @@ body {
   transform: scale(1.05);
 }
 
-/* Mobile Responsive */
+/* --- Mobile Responsive (Drawer Style) --- */
 @media (max-width: 768px) {
+
+  .mobile-close-btn {
+    display: flex;
+    align-self: flex-end;
+    background: none;
+    border: none;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #374151;
+  }
+
+
   .hamburger {
     display: flex;
   }
 
   /* Updated padding to accommodate the close button at the top */
   .navbar-links {
-    position: fixed; /* Floats over the page */
-    top: 15px;      /* Gap from edges */
+    position: fixed;
+    top: 15px;
     right: 15px;
-    width: 280px;   /* Drawer width */
+    width: 280px;
     max-width: 85vw;
     height: auto;
     max-height: calc(100vh - 30px);
-    
     flex-direction: column;
     background: white;
-    border-radius: 20px; /* Rounded corners like Chrome/Screenshot */
-    padding: 1.5rem 0.5rem !important;
+    border-radius: 20px;
+    padding: 10px 0.5rem 1.5rem 0.5rem !important; /* Adjusted top padding */
     gap: 5px;
-    
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transform: translateX(120%); /* Start off-screen */
+    transform: translateX(120%);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
     z-index: 999;
+    overflow-y: auto;
+    display: flex !important;
+  }
+
+  .navbar-links.active {
+    transform: translateX(0); /* Slide in */
   }
 
   .navbar-links li {
     width: 100%;
-  }
-
-  .dropdown-menu {
-    position: static;
-    background: transparent;
-    box-shadow: none;
-    padding: 0;
-  }
-
-  .dropdown-menu li a {
-    color: #1f2937;
-    padding: 0.8rem 1rem;
-  }
-
-  .navbar-links.active {
-    max-height: 500px;
-    padding: 1rem 0;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-
-  .navbar-links li {
-    padding: 0.8rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .navbar-links li:last-child {
-    border-bottom: none;
+    border-bottom: none !important;
+    padding: 2px 0 !important;
   }
 
   .navbar-links a {
     display: block;
-    padding: 0.8rem 1rem;
-    font-size: 0.9rem;
+    text-align: left;
+    padding: 0.8rem 1.2rem !important;
+    margin: 0 10px;
+    border-radius: 12px;
+    color: #374151;
+  }
+
+  /* Dropdown positioning inside the side drawer */
+  .navbar-links li.dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dropdown-header {
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+
+  .dropdown-menu {
+    position: static; /* Push content down instead of floating */
+    width: auto;
+    background: #f3f4f6; /* Gray background for nested items */
+    margin: 5px 15px;
+    border-radius: 10px;
+    box-shadow: none;
+    flex: 0 0 100%;
   }
 
   /* Hamburger animation */
   .hamburger.active .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
   .hamburger.active .bar:nth-child(2) { opacity: 0; }
   .hamburger.active .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+}
+
+/* Container for the flip effect */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+/* The actual flip action */
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* For Safari */
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Front Side Overlay */
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  padding: 20px;
+  text-align: left;
+}
+
+/* Back Side Styling */
+.flip-card-back {
+  background: linear-gradient(135deg, #2f855a 0%, #1e4620 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  transform: rotateY(180deg); /* Pre-flipped */
+  text-align: center;
+}
+
+.centers-grid {
+  display: grid;
+  /* This creates exactly 3 columns on desktop and stretches them to fill space */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 2rem;
+  width: 100%;
+}
+
+.flip-card {
+  height: 450px; /* Increased height for a "big" look */
+  perspective: 1500px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Important: Hides the side not facing the user */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crucial: ensures image fills card perfectly */
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  color: white;
+  padding: 1.5rem;
+}
+
+.flip-card-back {
+  background: linear-gradient(135deg, #2f855a 0%, #1e4620 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  transform: rotateY(180deg); /* Card starts flipped over */
+  text-align: center;
+}
+
+.details-btn {
+  background: white;
+  color: #2f855a;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* --- Responsive Adjustments --- */
+
+/* Tablets: 2 columns */
+@media (max-width: 1024px) {
+  .centers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .page {
+    padding: 2rem;
+  }
+}
+
+/* Mobile: 1 column and slightly shorter cards */
+@media (max-width: 768px) {
+  .centers-grid {
+    grid-template-columns: 1fr;
+  }
+  .flip-card {
+    height: 300px;
+  }
+  .page {
+    padding: 1.5rem;
+  }
 }
 
 /* --- Hero, Features, Footer (Unchanged) --- */
