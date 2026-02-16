@@ -1,3 +1,12 @@
+/* --- Desktop Icons (Hidden on Desktop) --- */
+.menu-icon-svg {
+  display: none;
+}
+
+.mobile-close-btn {
+  display: none;
+}
+
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -184,29 +193,139 @@ body {
   transition: all 0.3s ease;
 }
 
+@media (min-width: 1024px) {
+  .page {
+    width: 100vw;
+  max-width: 100%; /* Removes any previous restrictions like 900px or 1200px */
+  margin: 0;
+  padding: 2rem 4rem; /* Adds generous padding on the sides for desktop */
+  box-sizing: border-box;
+}
+
+  .flip-card {
+    height: 350px; /* Taller cards for desktop to fill more vertical space */
+  }
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px; /* Slightly more rounded for a modern look */
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Image Styling --- */
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the image fills the entire card area */
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+  color: white;
+  padding: 2rem 1.5rem 1.5rem;
+}
+
+.image-overlay h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* --- Back Side Styling --- */
+.flip-card-back {
+  background: linear-gradient(135deg, #2f855a 0%, #1e4620 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  transform: rotateY(180deg);
+  text-align: center;
+}
+
+.flip-card-back h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.flip-card-back p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.details-btn {
+  background: white;
+  color: #2f855a;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.details-btn:hover {
+  transform: scale(1.05);
+}
+
 /* --- Mobile Responsive (Drawer Style) --- */
 @media (max-width: 768px) {
+
+  .mobile-close-btn {
+    display: flex;
+    align-self: flex-end;
+    background: none;
+    border: none;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #374151;
+  }
+
+
   .hamburger {
     display: flex;
   }
 
+  /* Updated padding to accommodate the close button at the top */
   .navbar-links {
-    position: fixed; /* Floats over the page */
-    top: 15px;      /* Gap from edges */
+    position: fixed;
+    top: 15px;
     right: 15px;
-    width: 280px;   /* Drawer width */
+    width: 280px;
     max-width: 85vw;
     height: auto;
     max-height: calc(100vh - 30px);
-    
     flex-direction: column;
     background: white;
-    border-radius: 20px; /* Rounded corners like Chrome/Screenshot */
-    padding: 1.5rem 0.5rem !important;
+    border-radius: 20px;
+    padding: 10px 0.5rem 1.5rem 0.5rem !important; /* Adjusted top padding */
     gap: 5px;
-    
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transform: translateX(120%); /* Start off-screen */
+    transform: translateX(120%);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
     z-index: 999;
     overflow-y: auto;
@@ -258,6 +377,153 @@ body {
   .hamburger.active .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
   .hamburger.active .bar:nth-child(2) { opacity: 0; }
   .hamburger.active .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+}
+
+/* Container for the flip effect */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+/* The actual flip action */
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* For Safari */
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Front Side Overlay */
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  padding: 20px;
+  text-align: left;
+}
+
+/* Back Side Styling */
+.flip-card-back {
+  background: linear-gradient(135deg, #2f855a 0%, #1e4620 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  transform: rotateY(180deg); /* Pre-flipped */
+  text-align: center;
+}
+
+.centers-grid {
+  display: grid;
+  /* This creates exactly 3 columns on desktop and stretches them to fill space */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 2rem;
+  width: 100%;
+}
+
+.flip-card {
+  height: 450px; /* Increased height for a "big" look */
+  perspective: 1500px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Important: Hides the side not facing the user */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crucial: ensures image fills card perfectly */
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  color: white;
+  padding: 1.5rem;
+}
+
+.flip-card-back {
+  background: linear-gradient(135deg, #2f855a 0%, #1e4620 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  transform: rotateY(180deg); /* Card starts flipped over */
+  text-align: center;
+}
+
+.details-btn {
+  background: white;
+  color: #2f855a;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* --- Responsive Adjustments --- */
+
+/* Tablets: 2 columns */
+@media (max-width: 1024px) {
+  .centers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .page {
+    padding: 2rem;
+  }
+}
+
+/* Mobile: 1 column and slightly shorter cards */
+@media (max-width: 768px) {
+  .centers-grid {
+    grid-template-columns: 1fr;
+  }
+  .flip-card {
+    height: 300px;
+  }
+  .page {
+    padding: 1.5rem;
+  }
 }
 
 /* --- Hero, Features, Footer (Unchanged) --- */
