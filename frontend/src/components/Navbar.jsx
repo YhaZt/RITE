@@ -47,6 +47,14 @@ export default function Navbar() {
       {isOpen && <div className="menu-overlay" onClick={toggleMenu}></div>}
 
       <div className={`navbar-links ${isOpen ? "active" : ""}`}>
+        {/* Close Button - Visible only in mobile via CSS */}
+        <button className="mobile-close-btn" onClick={toggleMenu} aria-label="Close menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
         <li><NavLink to="/" onClick={handleNormalLinkClick}>Home</NavLink></li>
         <li><NavLink to="/about" onClick={handleNormalLinkClick}>About</NavLink></li>
 
@@ -107,10 +115,15 @@ export default function Navbar() {
         <li><NavLink to="/centers" onClick={handleNormalLinkClick}>Research Centers</NavLink></li>
       </div>
 
-      <div className="hamburger" onClick={toggleMenu}>
-        <span className={`bar ${isOpen ? "active" : ""}`}></span>
-        <span className={`bar ${isOpen ? "active" : ""}`}></span>
-        <span className={`bar ${isOpen ? "active" : ""}`}></span>
+      {/* Hamburger icon disappears when isOpen is true */}
+      <div 
+        className="hamburger" 
+        onClick={toggleMenu} 
+        style={{ display: isOpen ? 'none' : '' }}
+      >
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
       </div>
     </nav>
   );
