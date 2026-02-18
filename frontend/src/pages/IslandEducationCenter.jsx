@@ -11,32 +11,32 @@ export default function IslandEducationCenter() {
       </section>
 
       <section style={{ marginBottom: "2rem" }}>
-        <h3 style={{ marginBottom: "1.5rem", color: "#1e4620" }}>Research Focus Areas</h3>
+        <h3 style={{ marginBottom: "1.5rem", color: "#00d460" }}>Research Focus Areas</h3>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
-          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #2f855a" }}>
-            <h4 style={{ color: "#1e4620", marginBottom: "0.5rem" }}>Island Ecology Research</h4>
+          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #00d460" }}>
+            <h4 style={{ color: "#00d460", marginBottom: "0.5rem" }}>Island Ecology Research</h4>
             <p style={{ fontSize: "0.95rem", color: "#555" }}>Understanding and protecting unique island ecosystems.</p>
           </div>
           
-          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #2f855a" }}>
-            <h4 style={{ color: "#1e4620", marginBottom: "0.5rem" }}>Sustainable Resource Management</h4>
+          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #00d460" }}>
+            <h4 style={{ color: "#00d460", marginBottom: "0.5rem" }}>Sustainable Resource Management</h4>
             <p style={{ fontSize: "0.95rem", color: "#555" }}>Managing limited resources responsibly in island contexts.</p>
           </div>
           
-          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #2f855a" }}>
-            <h4 style={{ color: "#1e4620", marginBottom: "0.5rem" }}>Island Education Programs</h4>
+          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #00d460" }}>
+            <h4 style={{ color: "#00d460", marginBottom: "0.5rem" }}>Island Education Programs</h4>
             <p style={{ fontSize: "0.95rem", color: "#555" }}>Developing context-specific educational curricula for islands.</p>
           </div>
           
-          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #2f855a" }}>
-            <h4 style={{ color: "#1e4620", marginBottom: "0.5rem" }}>Coastal Zone Management</h4>
+          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #00d460" }}>
+            <h4 style={{ color: "#00d460", marginBottom: "0.5rem" }}>Coastal Zone Management</h4>
             <p style={{ fontSize: "0.95rem", color: "#555" }}>Protecting and managing coastal and marine areas.</p>
           </div>
         </div>
       </section>
 
       <section style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)" }}>
-        <h3 style={{ marginBottom: "1rem", color: "#1e4620" }}>Our Mission</h3>
+        <h3 style={{ marginBottom: "1rem", color: "#00d460" }}>Our Mission</h3>
         <p style={{ fontSize: "0.95rem", color: "#555", lineHeight: "1.6" }}>
           To advance sustainable development in island communities through research, education, and practical solutions that balance economic development with environmental conservation.
         </p>

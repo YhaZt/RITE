@@ -11,32 +11,32 @@ export default function FisheriesResearchCenter() {
       </section>
 
       <section style={{ marginBottom: "2rem" }}>
-        <h3 style={{ marginBottom: "1.5rem", color: "#1e4620" }}>Research Focus Areas</h3>
+        <h3 style={{ marginBottom: "1.5rem", color: "#00d460" }}>Research Focus Areas</h3>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
-          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #2f855a" }}>
-            <h4 style={{ color: "#1e4620", marginBottom: "0.5rem" }}>Sustainable Fishing Practices</h4>
+          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #00d460" }}>
+            <h4 style={{ color: "#00d460", marginBottom: "0.5rem" }}>Sustainable Fishing Practices</h4>
             <p style={{ fontSize: "0.95rem", color: "#555" }}>Developing methods that balance productivity with ecosystem health.</p>
           </div>
           
-          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #2f855a" }}>
-            <h4 style={{ color: "#1e4620", marginBottom: "0.5rem" }}>Aquaculture Development</h4>
+          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #00d460" }}>
+            <h4 style={{ color: "#00d460", marginBottom: "0.5rem" }}>Aquaculture Development</h4>
             <p style={{ fontSize: "0.95rem", color: "#555" }}>Advancing fish farming and breeding technologies.</p>
           </div>
           
-          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #2f855a" }}>
-            <h4 style={{ color: "#1e4620", marginBottom: "0.5rem" }}>Fish Biology & Ecology</h4>
+          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #00d460" }}>
+            <h4 style={{ color: "#00d460", marginBottom: "0.5rem" }}>Fish Biology & Ecology</h4>
             <p style={{ fontSize: "0.95rem", color: "#555" }}>Understanding aquatic ecosystems and species behavior.</p>
           </div>
           
-          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #2f855a" }}>
-            <h4 style={{ color: "#1e4620", marginBottom: "0.5rem" }}>Post-Harvest Technology</h4>
+          <div style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", borderLeft: "4px solid #00d460" }}>
+            <h4 style={{ color: "#00d460", marginBottom: "0.5rem" }}>Post-Harvest Technology</h4>
             <p style={{ fontSize: "0.95rem", color: "#555" }}>Improving processing, preservation, and product development.</p>
           </div>
         </div>
       </section>
 
       <section style={{ background: "white", padding: "1.5rem", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)" }}>
-        <h3 style={{ marginBottom: "1rem", color: "#1e4620" }}>Our Mission</h3>
+        <h3 style={{ marginBottom: "1rem", color: "#00d460" }}>Our Mission</h3>
         <p style={{ fontSize: "0.95rem", color: "#555", lineHeight: "1.6" }}>
           To strengthen the fisheries sector through research-driven innovations, ensuring sustainable aquatic resource management and improved food security.
         </p>

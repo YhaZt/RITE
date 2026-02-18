@@ -195,12 +195,13 @@ body {
 
 @media (min-width: 1024px) {
   .page {
-    width: 100vw;
-  max-width: 100%; /* Removes any previous restrictions like 900px or 1200px */
-  margin: 0;
-  padding: 2rem 4rem; /* Adds generous padding on the sides for desktop */
-  box-sizing: border-box;
-}
+    width: 100%;
+    flex: 1;
+    padding: 2rem 4rem; /* Adds generous padding on the sides for desktop */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
 
   .flip-card {
     height: 350px; /* Taller cards for desktop to fill more vertical space */
@@ -510,6 +511,9 @@ body {
   }
   .page {
     padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -523,6 +527,9 @@ body {
   }
   .page {
     padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -539,7 +546,7 @@ body {
 .feature-number { position: absolute; top: -16px; left: 16px; background-color: #2f855a; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
 .feature-card h3 { margin-top: 1.2rem; margin-bottom: 0.5rem; color: #1f2937; }
 .feature-card p { color: #4b5563; font-size: 0.95rem; }
-.page { padding: 3rem 2rem; max-width: 900px; margin: auto; }
+.page { padding: 3rem 2rem; width: 100%; flex: 1; display: flex; flex-direction: column; box-sizing: border-box; background: linear-gradient(135deg, #e8f5ee 0%, #fffacd 50%, #ffe4cc 100%); }
 .page h2 { color: #2f855a; margin-bottom: 1rem; }
 .footer { background: linear-gradient(135deg, #0f5c3f 0%, #1a2332 100%); color: #d1d5db; text-align: center; padding: 1.5rem 1rem; margin-top: auto; }
 .footer p { margin: 0.3rem 0; }
