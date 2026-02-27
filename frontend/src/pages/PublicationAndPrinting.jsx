@@ -3,7 +3,7 @@ import React from "react";
 export default function PublicationAndPrinting() {
   return (
     <main className="page">
-      <section className="page-hero" style={{background: "linear-gradient(135deg,#1a2332,#1e4620)", color: "white", padding: "2.5rem", borderRadius: "8px", marginBottom: "1rem"}}>
+      <section className="page-hero" style={{background: "linear-gradient(135deg,#1a2332,#1e4620)", color: "white", padding: "clamp(1.5rem, 4vw, 2.5rem)", borderRadius: "8px", marginBottom: "1rem"}}>
         <h2>Publication and Printing Unit</h2>
         <p style={{maxWidth: "900px", opacity: 0.9}}>
           The Publication and Printing Unit supports dissemination of scholarly work through high-quality

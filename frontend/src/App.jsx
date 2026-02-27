@@ -14,6 +14,8 @@ import ResearchUnit from "./pages/ResearchUnit";
 import TechnologyTransfer from "./pages/TechnologyTransfer";
 import MinsuIBibes from "./pages/MinsuIBibes";
 import BakodhubPage from "./pages/BakodhubPage";
+import ProjectMauya from "./pages/ProjectMauya";
+import InnovationHub from "./pages/InnovationHub";
 import MindoroDevelopmentCenter from "./pages/MindoroDevelopmentCenter";
 import DigitalInnovationCenter from "./pages/DigitalInnovationCenter";
 import EnvironmentalStudiesCenter from "./pages/EnvironmentalStudiesCenter";
@@ -38,6 +40,8 @@ export default function App() {
         <Route path="/technology-transfer" element={<TechnologyTransfer />} />
         <Route path="/minsu-i-bibes" element={<MinsuIBibes />} />
         <Route path="/bakodhub" element={<BakodhubPage />} />
+        <Route path="/project-mauya" element={<ProjectMauya />} />
+        <Route path="/innovation-hub" element={<InnovationHub />} />
         <Route path="/ethics" element={<Ethics />} />
         <Route path="/extension" element={<Extension />} />
         <Route path="/centers" element={<Centers />} />

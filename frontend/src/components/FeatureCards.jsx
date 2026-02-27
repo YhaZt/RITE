@@ -13,7 +13,6 @@ export default function FeatureCards() {
       <div className="features-grid">
         {cards.map(card => (
           <div key={card.id} className="feature-card">
-            <div className="feature-number">{card.id}</div>
             <h3>{card.title}</h3>
             <p>{card.description}</p>
           </div>

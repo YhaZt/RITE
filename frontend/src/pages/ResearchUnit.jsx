@@ -3,7 +3,7 @@ import React from "react";
 export default function ResearchUnit() {
   return (
     <main className="page">
-      <section className="page-hero" style={{background: "linear-gradient(135deg,#2f855a,#38a169)", color: "white", padding: "2.5rem", borderRadius: "8px", marginBottom: "1rem"}}>
+      <section className="page-hero" style={{background: "linear-gradient(135deg,#2f855a,#38a169)", color: "white", padding: "clamp(1.5rem, 4vw, 2.5rem)", borderRadius: "8px", marginBottom: "1rem"}}>
         <h2>Research Unit</h2>
         <p style={{maxWidth: "900px", opacity: 0.95}}>
           The Research Unit fosters multidisciplinary projects, research capacity building, and collaborative
