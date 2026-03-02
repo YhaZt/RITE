@@ -69,9 +69,9 @@ export default function Innovation() {
         </h3>
 
         {/* Innovation Pillars - Flip Cards (expanded, cover banner) */}
-        <div style={{ display: "flex", gap: "clamp(0.5rem, 1.5vw, 1rem)", marginTop: "1.25rem", flexWrap: "wrap", width: "100%", justifyContent: "space-between", alignItems: "stretch" }}>
+        <div style={{ display: "flex", gap: "clamp(0.5rem, 1.5vw, 1rem)", marginTop: "1.25rem", flexWrap: "wrap", width: "100%", justifyContent: "center", alignItems: "stretch" }}>
           {pillars.map((p, i) => (
-            <div key={p.letter} style={{ perspective: "1200px", flex: "1 1 clamp(160px, 18vw, 260px)", minWidth: "clamp(150px, 14vw, 200px)", height: "clamp(160px, 20vh, 260px)" }}>
+            <div key={p.letter} className="flip-card" style={{ flex: "0 1 18%", maxWidth: "18%", minWidth: "120px", height: "clamp(160px, 20vh, 260px)" }}>
               {p.letter === "B" ? (
                 <NavLink to="/technology-transfer" style={{ textDecoration: "none", color: "inherit" }}>
                   <div
@@ -92,10 +92,10 @@ export default function Innovation() {
                     }}
                   >
                     <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", backfaceVisibility: "hidden", background: "rgba(255,255,255,0.04)", color: "white", padding: "1rem", borderRadius: "14px", fontWeight: 400 }}>
-                      <div style={{ height: "clamp(64px, 12vw, 120px)", display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
-                        <div style={{ fontSize: "clamp(28px, 8vw, 56px)", lineHeight: 1, fontWeight: 900, letterSpacing: "1px", opacity: 0.98 }}>{p.letter}</div>
+                      <div style={{ height: "clamp(48px, 10vw, 80px)", display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
+                        <div style={{ fontSize: "clamp(18px, 5vw, 36px)", lineHeight: 1, fontWeight: 900, letterSpacing: "1px", opacity: 0.98 }}>{p.letter}</div>
                       </div>
-                      <div style={{ marginTop: "0.4rem", fontSize: "clamp(0.95rem, 1.8vw, 1.05rem)", lineHeight: 1.3, textAlign: "center", maxWidth: "100%", padding: "0 0.25rem", fontFamily: "Georgia, 'Times New Roman', Times, serif", fontStyle: "italic", fontWeight: 400 }}>{p.front}</div>
+                      <div style={{ marginTop: "0.3rem", fontSize: "clamp(0.85rem, 1.6vw, 1rem)", lineHeight: 1.25, textAlign: "center", maxWidth: "100%", padding: "0 0.25rem", fontFamily: "Georgia, 'Times New Roman', Times, serif", fontStyle: "italic", fontWeight: 400 }}>{p.front}</div>
                     </div>
                     <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", backfaceVisibility: "hidden", transform: "rotateY(180deg)", background: "rgba(0,0,0,0.14)", color: "white", padding: "1rem", borderRadius: "14px", fontSize: "0.95rem", textAlign: "center" }}>
                       {p.back}
@@ -122,10 +122,10 @@ export default function Innovation() {
                   }}
                 >
                   <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", backfaceVisibility: "hidden", background: "rgba(255,255,255,0.04)", color: "white", padding: "1rem", borderRadius: "14px", fontWeight: 400 }}>
-                    <div style={{ height: "clamp(64px, 12vw, 120px)", display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
-                      <div style={{ fontSize: "clamp(28px, 8vw, 56px)", lineHeight: 1, fontWeight: 900, letterSpacing: "1px", opacity: 0.98 }}>{p.letter}</div>
+                    <div style={{ height: "clamp(48px, 10vw, 80px)", display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
+                      <div style={{ fontSize: "clamp(18px, 5vw, 36px)", lineHeight: 1, fontWeight: 900, letterSpacing: "1px", opacity: 0.98 }}>{p.letter}</div>
                     </div>
-                    <div style={{ marginTop: "0.4rem", fontSize: "clamp(0.95rem, 1.8vw, 1.05rem)", lineHeight: 1.3, textAlign: "center", maxWidth: "100%", padding: "0 0.25rem", fontFamily: "Georgia, 'Times New Roman', Times, serif", fontStyle: "italic", fontWeight: 400 }}>{p.front}</div>
+                    <div style={{ marginTop: "0.3rem", fontSize: "clamp(0.85rem, 1.6vw, 1rem)", lineHeight: 1.25, textAlign: "center", maxWidth: "100%", padding: "0 0.25rem", fontFamily: "Georgia, 'Times New Roman', Times, serif", fontStyle: "italic", fontWeight: 400 }}>{p.front}</div>
                   </div>
                   <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", backfaceVisibility: "hidden", transform: "rotateY(180deg)", background: "rgba(0,0,0,0.14)", color: "white", padding: "1rem", borderRadius: "14px", fontSize: "0.95rem", textAlign: "center" }}>
                     {p.back}

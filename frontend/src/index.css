@@ -251,19 +251,30 @@ body {
   transition: all 0.3s ease;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .page {
     width: 100%;
     flex: 1;
-    padding: 2rem 4rem; /* Adds generous padding on the sides for desktop */
+    padding: 2rem 4rem; /* Adds generous padding on the sides for laptop/desktop */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
   }
 
   .flip-card {
-    height: 350px; /* Taller cards for desktop to fill more vertical space */
+    height: 350px; /* Taller cards for laptop/desktop to fill more vertical space */
   }
+}
+
+/* ensure very small screens use shorter cards */
+@media (max-width: 767px) {
+  .flip-card {
+    height: 260px;
+  }
+}
+
+.flip-card {
+  perspective: 1200px; /* consistent 3d perspective for all cards */
 }
 
 .flip-card-inner {
